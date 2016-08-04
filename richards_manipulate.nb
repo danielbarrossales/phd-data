@@ -1,0 +1,360 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13578,        351]
+NotebookOptionsPosition[     13209,        333]
+NotebookOutlinePosition[     13562,        349]
+CellTagsIndexPosition[     13519,        346]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"v", "[", 
+    RowBox[{"age_", ",", "p_", ",", "u_"}], "]"}], ":=", 
+   RowBox[{"p", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"age", "-", "u"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"4", "/", "5"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SiteProductivityR", "[", 
+    RowBox[{"bmax_", ",", "r_", ",", "beta_"}], "]"}], ":=", 
+   RowBox[{"bmax", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "+", "beta"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "beta"}], ")"}]}], "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"5", "/", "4"}], ")"}], "*", "r", "*", 
+       RowBox[{"beta", "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "+", "beta"}], ")"}]}]}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"4", "/", "5"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"InflectionAge", "[", 
+    RowBox[{"bmax_", ",", "r_", ",", "beta_", ",", "b0_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"Log", "[", 
+       RowBox[{
+        RowBox[{"-", "beta"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"b0", "/", "bmax"}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"-", "beta"}], ")"}]}]}], ")"}]}], "]"}]}], "/", "beta"}],
+     "/", "r"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RejuvenationBiasR", "[", 
+    RowBox[{"bmax_", ",", "r_", ",", "beta_", ",", "b0_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"InflectionAge", "[", 
+     RowBox[{"bmax", ",", "r", ",", "beta", ",", "b0"}], "]"}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"4", "/", "5"}], ")"}], "*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "+", "beta"}], ")"}], "/", "beta"}], "/", "r"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rc", "[", 
+    RowBox[{"age_", ",", "bmax_", ",", "b0_", ",", "r_", ",", "beta_"}], 
+    "]"}], ":=", 
+   RowBox[{"bmax", "*", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{
+        RowBox[{"Exp", "[", 
+         RowBox[{
+          RowBox[{"-", "beta"}], "*", "r", "*", "age"}], "]"}], 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"b0", "/", "bmax"}], ")"}], "^", 
+           RowBox[{"(", 
+            RowBox[{"-", "beta"}], ")"}]}]}], ")"}]}]}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "/", "beta"}], ")"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"richards", "[", 
+    RowBox[{"t_", ",", "k_", ",", "rate_", ",", "tm_", ",", "a_"}], "]"}], ":=",
+    " ", 
+   RowBox[{"k", "/", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "rate"}], 
+         RowBox[{"(", 
+          RowBox[{"t", "-", "tm"}], ")"}]}], "]"}]}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"1", "/", "a"}], ")"}]}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.672494838696555*^9, 3.67249490107903*^9}, {
+  3.6724954663954487`*^9, 3.672495481657959*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "@", 
+    RowBox[{"Pane", "[", "\[IndentingNewLine]", 
+     RowBox[{"Row", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Text", "@", 
+         RowBox[{"Style", "[", 
+          RowBox[{"Column", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"LocatorPane", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "@", "pts"}], ",", 
+               RowBox[{"Dynamic", "@", 
+                RowBox[{"Plot", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"richards", "[", 
+                    RowBox[{
+                    "age", ",", "k", ",", "rate", ",", "tm", ",", "a"}], 
+                    "]"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"age", ",", "0", ",", "400"}], "}"}], ",", 
+                  RowBox[{"Frame", "\[Rule]", "True"}], ",", " ", 
+                  RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", " ", 
+                  RowBox[{"GridLinesStyle", "\[Rule]", 
+                   RowBox[{"Directive", "[", 
+                    RowBox[{"Gray", ",", "Dashed"}], "]"}]}], ",", 
+                  RowBox[{"Axes", "\[Rule]", "None"}], ",", " ", 
+                  RowBox[{"FrameLabel", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "\"\<time\>\"", ",", " ", 
+                    "\"\<# of infected individuals\>\""}], " ", "}"}]}], ",", 
+                  
+                  RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+                  RowBox[{"Background", "\[Rule]", "LightYellow"}], ",", 
+                  RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"15", ",", "10"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"80", ",", "1500"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "1"}], "}"}]}], "}"}], ",", 
+               RowBox[{"LocatorAutoCreate", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", "15"}], "}"}]}]}], "]"}], "}"}], ",", 
+            "Center"}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"Spacer", "[", "20", "]"}]}], "]"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"k", ",", "14198", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<(richards) carrying capacity \>\"", ",", "\"\<k\>\""}], 
+         "}"}], "]"}]}], "}"}], ",", "1200", ",", "50000", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rate", ",", "0.056", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<(richards) growth rate \>\"", ",", "\"\<r\>\""}], "}"}],
+         "]"}]}], "}"}], ",", "0.00001", ",", "1", ",", "0.000001", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tm", ",", "95.34", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", "\"\<(richards) tm\>\"", "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"-", "10001"}], ",", "10000", ",", "0.001", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0.996", ",", 
+       RowBox[{"Row", "[", 
+        RowBox[{"{", "\"\<(richards) a\>\"", "}"}], "]"}]}], "}"}], ",", 
+     "0.00001", ",", "5", ",", "0.00001", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", "1", "}"}]}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"TrackedSymbols", "\[Rule]", "Manipulate"}], ",", 
+   RowBox[{"ControllerLinking", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.6724947907678623`*^9, {3.6724949280373783`*^9, 3.672494938365513*^9}, {
+   3.672494969762451*^9, 3.672495050198097*^9}, {3.6724951822032433`*^9, 
+   3.672495226122629*^9}, {3.6724952570905113`*^9, 3.672495261745467*^9}, {
+   3.6724953124923983`*^9, 3.672495474855014*^9}, {3.672495597309917*^9, 
+   3.672495762430986*^9}, {3.6724957979222603`*^9, 3.672495822557556*^9}, {
+   3.672495865579486*^9, 3.6724959118744707`*^9}, {3.672495974071146*^9, 
+   3.67249600100937*^9}, {3.672496176398999*^9, 3.6724961767026463`*^9}, {
+   3.672496242603291*^9, 3.672496291978196*^9}, {3.6777524142715263`*^9, 
+   3.67775241463515*^9}, {3.677752557643476*^9, 3.677752559840681*^9}, {
+   3.6777526060883293`*^9, 3.677752614871681*^9}, {3.677752695111532*^9, 
+   3.677752699749518*^9}, {3.677754575820896*^9, 3.677754585428825*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 
+    0.39630000000000004`, $CellContext`k$$ = 10940, $CellContext`rate$$ = 
+    0.05, $CellContext`tm$$ = 225.9349999999995, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`k$$], 14198, 
+       Row[{"(richards) carrying capacity ", "k"}]}, 1200, 50000}, {{
+       Hold[$CellContext`rate$$], 0.056, 
+       Row[{"(richards) growth rate ", "r"}]}, 0.00001, 1, 1.*^-6}, {{
+       Hold[$CellContext`tm$$], 95.34, 
+       Row[{"(richards) tm"}]}, -10001, 10000, 0.001}, {{
+       Hold[$CellContext`a$$], 0.996, 
+       Row[{"(richards) a"}]}, 0.00001, 5, 0.00001}}, Typeset`size$$ = {
+    582., {182., 187.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`k$52300$$ = 
+    0, $CellContext`rate$52301$$ = 0, $CellContext`tm$52302$$ = 
+    0, $CellContext`a$52303$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 0.996, $CellContext`k$$ = 
+        14198, $CellContext`rate$$ = 0.056, $CellContext`tm$$ = 95.34}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`k$$, $CellContext`k$52300$$, 0], 
+        Hold[$CellContext`rate$$, $CellContext`rate$52301$$, 0], 
+        Hold[$CellContext`tm$$, $CellContext`tm$52302$$, 0], 
+        Hold[$CellContext`a$$, $CellContext`a$52303$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Dynamic[
+        Pane[
+         Row[{
+           Text[
+            Style[
+             Column[{
+               LocatorPane[
+                Dynamic[$CellContext`pts], 
+                Dynamic[
+                 Plot[{
+                   $CellContext`richards[$CellContext`age, $CellContext`k$$, \
+$CellContext`rate$$, $CellContext`tm$$, $CellContext`a$$]}, {$CellContext`age,
+                    0, 400}, Frame -> True, GridLines -> Automatic, 
+                  GridLinesStyle -> Directive[Gray, Dashed], Axes -> None, 
+                  FrameLabel -> {"time", "# of infected individuals"}, 
+                  PlotRange -> All, Background -> LightYellow, ImageSize -> 
+                  Large]], {{15, 10}, {80, 1500}, {1, 1}}, 
+                LocatorAutoCreate -> {1, 15}]}, Center]]]}, 
+          Spacer[20]]]], "Specifications" :> {{{$CellContext`k$$, 14198, 
+          Row[{"(richards) carrying capacity ", "k"}]}, 1200, 50000, 
+         Appearance -> "Labeled"}, {{$CellContext`rate$$, 0.056, 
+          Row[{"(richards) growth rate ", "r"}]}, 0.00001, 1, 1.*^-6, 
+         Appearance -> "Labeled"}, {{$CellContext`tm$$, 95.34, 
+          Row[{"(richards) tm"}]}, -10001, 10000, 0.001, Appearance -> 
+         "Labeled"}, {{$CellContext`a$$, 0.996, 
+          Row[{"(richards) a"}]}, 0.00001, 5, 0.00001, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       AutorunSequencing -> {1}, TrackedSymbols -> Manipulate, 
+        ControllerLinking -> False}, "DefaultOptions" :> {}],
+     ImageSizeCache->{627., {322., 327.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`pts = {48, 755}, $CellContext`richards[
+         Pattern[$CellContext`t, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[]], 
+         Pattern[$CellContext`rate, 
+          Blank[]], 
+         Pattern[$CellContext`tm, 
+          Blank[]], 
+         Pattern[$CellContext`a, 
+          Blank[]]] := $CellContext`k/(1 + 
+         Exp[(-$CellContext`rate) ($CellContext`t - $CellContext`tm)])^(
+         1/$CellContext`a)}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.677752514409614*^9, 3.67775256095236*^9, 
+  3.67775262132552*^9, 3.677752704477714*^9, 3.677752734968861*^9, 
+  3.677754586586746*^9}]
+}, Open  ]]
+},
+WindowSize->{1280, 751},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3288, 106, 114, "Input"],
+Cell[CellGroupData[{
+Cell[3871, 130, 4962, 109, 216, "Input"],
+Cell[8836, 241, 4357, 89, 666, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

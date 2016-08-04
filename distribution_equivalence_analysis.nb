@@ -1,0 +1,363 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14667,        354]
+NotebookOptionsPosition[     14301,        336]
+NotebookOutlinePosition[     14654,        352]
+CellTagsIndexPosition[     14611,        349]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"process", "[", 
+    RowBox[{"linguagem_", ",", "agrupamento_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d1", ",", "d2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"grouping", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"agrupamento", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<mes\>\""}], ",", 
+         "\"\<month\>\"", ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"agrupamento", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "\"\<semana\>\""}], 
+           ",", "\"\<week\>\"", ",", "\"\<day\>\""}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"d1", "=", 
+       RowBox[{"Import", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\</Users/emanoel/Dropbox/UFPE/Doutorado/Dados/github/ghtorrent/\
+mathematica/programadores/\>\"", ",", 
+           RowBox[{"agrupamento", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<dados_\>\"", ",", 
+             RowBox[{"linguagem", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<_\>\"", ",", 
+             RowBox[{"agrupamento", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.dat\>\""}], "]"}]}], 
+          "}"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"d2", "=", 
+       RowBox[{"Import", "[", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\</Users/emanoel/Dropbox/UFPE/Doutorado/Dados/github/ghtorrent/\
+mathematica/projetos/\>\"", ",", 
+           RowBox[{"agrupamento", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<dados_\>\"", ",", 
+             RowBox[{"linguagem", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<_\>\"", ",", 
+             RowBox[{"agrupamento", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.dat\>\""}], "]"}]}], 
+          "}"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"plotD1", "=", " ", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"d1", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ";;", 
+            RowBox[{"-", "1"}], ";;", 
+            RowBox[{"agrupamento", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", " ", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+         RowBox[{"PlotMarkers", "\[Rule]", 
+          RowBox[{"{", "\"\<\[FilledUpTriangle]\>\"", "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<time\>\"", ",", "\"\<cumulative infected\>\""}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<Individuals infected by \>\"", ",", 
+            RowBox[{"linguagem", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "\"\< (grouped by \>\"", 
+            ",", "grouping", ",", "\"\<)\>\""}], "]"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\</Users/emanoel/Dropbox/UFPE/Doutorado/Dados/github/ghtorrent/\
+mathematica/analise_distribuicoes3/\>\"", ",", 
+           RowBox[{"agrupamento", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"linguagem", ",", "\"\<_graph_individuos_\>\"", ",", 
+             RowBox[{"agrupamento", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.eps\>\""}], "]"}]}], 
+          "}"}], "]"}], ",", "plotD1", ",", "\"\<EPS\>\""}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"plotD2", "=", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"d2", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ";;", 
+            RowBox[{"-", "1"}], ";;", 
+            RowBox[{"agrupamento", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", " ", 
+          RowBox[{"{", 
+           RowBox[{"Black", ",", 
+            RowBox[{"PointSize", "[", "0.01", "]"}]}], "}"}]}], ",", 
+         RowBox[{"PlotMarkers", "\[Rule]", 
+          RowBox[{"{", "\"\<\[FilledCircle]\>\"", "}"}]}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+         RowBox[{"AxesLabel", "\[Rule]", " ", 
+          RowBox[{"{", 
+           RowBox[{"\"\<time\>\"", ",", "\"\<cumulative infected\>\""}], 
+           "}"}]}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<Projects infected by \>\"", ",", 
+            RowBox[{"linguagem", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", "\"\< (grouped by \>\"", 
+            ",", "grouping", ",", "\"\<)\>\""}], "]"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\</Users/emanoel/Dropbox/UFPE/Doutorado/Dados/github/ghtorrent/\
+mathematica/analise_distribuicoes3/\>\"", ",", 
+           RowBox[{"agrupamento", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{
+             RowBox[{"linguagem", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<_graph_projetos_\>\"",
+              ",", 
+             RowBox[{"agrupamento", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.eps\>\""}], "]"}]}], 
+          "}"}], "]"}], ",", "plotD2", ",", "\"\<EPS\>\""}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"diff", "=", 
+       RowBox[{
+        RowBox[{"Length", "[", "d1", "]"}], "-", 
+        RowBox[{"Length", "[", "d2", "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"hypothesisTest", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"diff", ">", "0"}], ",", 
+         RowBox[{"GoodmanKruskalGammaTest", "[", 
+          RowBox[{
+           RowBox[{"Drop", "[", 
+            RowBox[{
+             RowBox[{"d1", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", "diff"}], "]"}], 
+           ",", 
+           RowBox[{"d2", "[", 
+            RowBox[{"[", 
+             RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+           "\"\<HypothesisTestData\>\""}], "]"}], ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"diff", "<", "0"}], ",", 
+           RowBox[{"GoodmanKruskalGammaTest", "[", 
+            RowBox[{
+             RowBox[{"d1", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+             RowBox[{"Drop", "[", 
+              RowBox[{
+               RowBox[{"d2", "[", 
+                RowBox[{"[", 
+                 RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", "diff"}], 
+              "]"}], ",", "\"\<HypothesisTestData\>\""}], "]"}], ",", 
+           RowBox[{"GoodmanKruskalGammaTest", "[", 
+            RowBox[{
+             RowBox[{"d1", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+             RowBox[{"d2", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+             "\"\<HypothesisTestData\>\""}], "]"}]}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\</Users/emanoel/Dropbox/UFPE/Doutorado/Dados/github/ghtorrent/\
+mathematica/analise_distribuicoes3/\>\"", ",", 
+           RowBox[{"agrupamento", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{
+             RowBox[{"linguagem", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", 
+             "\"\<_individuosVSposts_\>\"", ",", 
+             RowBox[{"agrupamento", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<_test.txt\>\""}], 
+            "]"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"prop", ",", 
+            RowBox[{"hypothesisTest", "[", "prop", "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"prop", ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<ShortTestConclusion\>\"", ",", "\"\<PValue\>\"", ",", 
+              "\"\<TestStatistic\>\""}], "}"}]}], "}"}]}], "]"}]}], "]"}], 
+      ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6760193999007263`*^9, 3.6760196697016*^9}, {
+   3.676019700663127*^9, 3.676019722953269*^9}, {3.676019786787304*^9, 
+   3.676019817716069*^9}, {3.676019851915711*^9, 3.676019900744553*^9}, 
+   3.676019972411724*^9, {3.6760200037083607`*^9, 3.676020007306012*^9}, {
+   3.676020095616166*^9, 3.676020283055851*^9}, {3.676020441175033*^9, 
+   3.67602047054486*^9}, {3.676020508008513*^9, 3.676020700451756*^9}, {
+   3.676020732694084*^9, 3.6760207644296827`*^9}, 3.676020843716012*^9, {
+   3.676020876557684*^9, 3.676021004527727*^9}, {3.676021387408811*^9, 
+   3.676021388999544*^9}, {3.6760214539419327`*^9, 3.6760214699212017`*^9}, {
+   3.6760215412648277`*^9, 3.676021547896241*^9}, {3.6760217288192263`*^9, 
+   3.6760218996420918`*^9}, {3.6760219621671553`*^9, 3.676021982160542*^9}, {
+   3.676022716244615*^9, 3.676022721733664*^9}, {3.676022754293913*^9, 
+   3.676022754949541*^9}, {3.676022808117886*^9, 3.676022808933628*^9}, {
+   3.676022957026429*^9, 3.6760229817850657`*^9}, {3.6760239227679787`*^9, 
+   3.676024015240735*^9}, {3.676024045494824*^9, 3.676024088019642*^9}, {
+   3.67602416646699*^9, 3.6760242161002817`*^9}, {3.676026239288739*^9, 
+   3.676026253632152*^9}, {3.676026311632303*^9, 3.676026322938506*^9}, {
+   3.67602642418743*^9, 3.676026429297874*^9}, {3.676026928417859*^9, 
+   3.676026982308033*^9}, {3.676039785899309*^9, 3.67603981129431*^9}, {
+   3.6760399192162867`*^9, 3.676039936673114*^9}, {3.676285985276528*^9, 
+   3.676286016705461*^9}, {3.676286076871187*^9, 3.6762861169016123`*^9}, {
+   3.6762862024439373`*^9, 3.676286215953958*^9}, {3.676286295337225*^9, 
+   3.676286303064361*^9}, {3.6762864006937037`*^9, 3.6762864620093184`*^9}, {
+   3.676286569543601*^9, 3.676286570703265*^9}, {3.677492520695776*^9, 
+   3.6774925210215073`*^9}, {3.677492552021446*^9, 3.677492553406254*^9}, {
+   3.677492594643252*^9, 3.677492637873147*^9}, {3.677492760951524*^9, 
+   3.6774927691051083`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{"process", "[", 
+    RowBox[{"ling", ",", "agrup"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"ling", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Assembly\>\"", ",", "\"\<Assembly\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<CSharp\>\"", ",", "\"\<CSharp\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<C\>\"", ",", "\"\<C\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<CPP\>\"", ",", "\"\<CPP\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Dart\>\"", ",", "\"\<Dart\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Go\>\"", ",", "\"\<Go\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Java\>\"", ",", "\"\<Java\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<JavaScript\>\"", ",", "\"\<Javascript\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Julia\>\"", ",", "\"\<Julia\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<ObjectiveC\>\"", ",", "\"\<Objective-C\>\""}], "}"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<PHP\>\"", ",", "\"\<PHP\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Python\>\"", ",", "\"\<Python\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<R\>\"", ",", "\"\<R\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Ruby\>\"", ",", "\"\<Ruby\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Rust\>\"", ",", "\"\<Rust\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Shell\>\"", ",", "\"\<Shell\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Swift\>\"", ",", "\"\<Swift\>\""}], "}"}]}], "}"}]}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"agrup", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<mes\>\"", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<dia\>\"", ",", "45"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<semana\>\"", ",", "6"}], "}"}]}], "}"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.676021040354775*^9, 3.6760211661701508`*^9}, {
+   3.676021203913754*^9, 3.676021279630582*^9}, {3.676021702330771*^9, 
+   3.676021718327721*^9}, 3.6760228821643047`*^9, {3.67602674771154*^9, 
+   3.6760269129737167`*^9}, {3.676039821442474*^9, 3.676039879199741*^9}, 
+   3.676040024989175*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.676286564593717*^9}]
+}, Open  ]]
+},
+WindowSize->{1280, 713},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 11190, 246, 420, "Input"],
+Cell[CellGroupData[{
+Cell[11773, 270, 2432, 60, 80, "Input"],
+Cell[14208, 332, 77, 1, 28, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

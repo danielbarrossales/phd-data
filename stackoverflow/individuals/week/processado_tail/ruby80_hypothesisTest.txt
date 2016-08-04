@@ -1,0 +1,21 @@
+{"ShortTestConclusion", q["ShortTestConclusion"]}
+{"PValue", q["PValue"]}
+{"TestStatistic", q["TestStatistic"]}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.991}
+{"TestStatistic", 3678.523520295533}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.994}
+{"TestStatistic", 3431.277917000665}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.989}
+{"TestStatistic", 3386.15620556491}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.988}
+{"TestStatistic", 3609.0598217455495}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.996}
+{"TestStatistic", 3418.2235880071294}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.994}
+{"TestStatistic", 3417.871504633422}

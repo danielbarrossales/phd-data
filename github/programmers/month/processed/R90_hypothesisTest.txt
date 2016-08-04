@@ -1,0 +1,21 @@
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.845}
+{"TestStatistic", 7137.517919302111}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.888}
+{"TestStatistic", 6015.805827201506}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.8}
+{"TestStatistic", 7852.641348679567}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.814}
+{"TestStatistic", 7498.232250173764}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.844}
+{"TestStatistic", 6838.815832035882}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.888}
+{"TestStatistic", 5754.385949956936}
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.915}
+{"TestStatistic", 5214.750878634212}

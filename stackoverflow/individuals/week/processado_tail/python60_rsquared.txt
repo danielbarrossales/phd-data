@@ -1,0 +1,9 @@
+fittedFull-dataFull->0.999644
+fittedPart-dataPart->0.999364
+fittedPart-dataFull->0.82209
+gaussianCorrected1-dataFull->0.821412
+gaussianCorrected2-dataFull->0.821411
+gaussianCorrected3-dataFull->0.821327
+correctedDamped1-dataFull->0.841543
+correctedDamped2-dataFull->0.842056
+correctedDamped3-dataFull->0.84184

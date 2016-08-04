@@ -1,0 +1,3 @@
+{"ShortTestConclusion", "Do not reject"}
+{"PValue", 0.809}
+{"TestStatistic", 48478.016234449635}
